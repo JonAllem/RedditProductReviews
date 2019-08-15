@@ -1,0 +1,11 @@
+FROM jupyter/all-spark-notebook
+LABEL maintainer=ldharmap@usc.edu \
+    Name=reddit-ecig-analysis
+# Create a conda environment with dependencies
+ADD conda-env.yml conda-env.yml
+RUN conda env update -f conda-env.yml \
+    && fix-permissions ${CONDA_DIR} \
+    && fix-permissions /home/${NB_USER}
+RUN python -m spacy download en
+ENV WORK_DIR /home/project
+WORKDIR ${WORK_DIR}

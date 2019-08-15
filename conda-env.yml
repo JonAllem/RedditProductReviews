@@ -1,0 +1,10 @@
+name: base
+dependencies:
+  - plotly
+  - conda-forge::wordcloud
+  - conda-forge::spacy
+  - conda-forge::scrapy
+  - jupyter
+  - pandas
+  - pip:
+    - praw
